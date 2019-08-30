@@ -1,3 +1,5 @@
+import pyperclip
+
 class User:
     users_list = []
     def __init__(self, fname, lname, password):
@@ -47,6 +49,10 @@ class Credentials:
             if (credential.site_name == site_name):
                 user_credentials_list.append(credential)
         return credential
-    
-                    
+
+    @classmethod
+    def copy_credential(cls, site_name):
+        get_credential = Credentials.get_by_site_name(site_name)
+        return pyperclip.copy(get_credential.password)
+
 
