@@ -11,3 +11,11 @@ class User:
 class Credentials:
     crededentials_list = []
     user_credentials = []
+
+    @classmethod
+    def user_check(cls, fname, password):
+        current_user = ''
+        for user in User.users_list:
+            if (user.fname == fname and password == password):
+                current_user = user.fname
+        return current_user        
