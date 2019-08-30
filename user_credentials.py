@@ -1,4 +1,6 @@
 import pyperclip
+import random
+import string
 
 class User:
     users_list = []
