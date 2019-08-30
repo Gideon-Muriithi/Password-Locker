@@ -7,3 +7,7 @@ class User:
 
     def user_saving:
         user.users_list.append(self)    
+
+class Credentials:
+    crededentials_list = []
+    user_credentials = []
