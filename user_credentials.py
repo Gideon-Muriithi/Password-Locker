@@ -28,4 +28,9 @@ class Credentials:
 
     def credentials_saving(self): 
         Credentials.crededentials_list.append(self)
-           
+
+    def password_generation(size = 8, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+        pwd_gen = ''.join(random.choice(char) for _ in range(size))
+		return pwd_gen
+ 
+
