@@ -32,5 +32,12 @@ class Credentials:
     def password_generation(size = 8, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
         pwd_gen = ''.join(random.choice(char) for _ in range(size))
 		return pwd_gen
- 
+   
+    @classmethod
+    def display_credentials(cls, username):
+        user_credentials_list = []
+        for credential in user_credentials_list:
+            if (credential.username == username):
+                user_credentials_list.append(credential)
+        return user_credentials_list        
 
