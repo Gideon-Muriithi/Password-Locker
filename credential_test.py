@@ -59,7 +59,22 @@ class TestCredentials(unittest.TestCase):
 		Facebook = Credential("Grace", "Facebook", "@graceg",'Been2000')
 		Facebook.save_credentials()
 		credential_exists = Credentials.get_by_site_name("Facebook")
-		self.assertEqual(credential_exists, Facebook)    
+		self.assertEqual(credential_exists, Facebook) 
+
+    def test_copy_credential(self):
+		self.new_credential.save_credentials()
+		Facebook = Credential("Grace", "Facebook", "@graceg",'Been2000')
+		Facebook.save_credentials()
+		get_credential = None
+		for credential in Credentials.user_credentials_list:
+				get_credential = Credentials.get_by_site_name(credential.site_name)
+				return pyperclip.copy(get_credential.password)
+		Credentials.copy_credential(self.new_credential.site_name)
+		self.assertEqual("Been200", pyperclip.paste())
+		print(pyperclip.paste())   
+            
+if __name__ == '__main__':
+	unittest.main(verbosity=2)
 
 
 
