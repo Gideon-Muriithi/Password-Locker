@@ -31,7 +31,7 @@ class TestCredentials(unittest.TestCase):
 		self.new_credential = Credentials("Gideon","Twitter","@gideonm","Been2000")
     
     def test__init__(self):
-        self.assertEqual(self.new_credential.user_name,"Gideon")
+        self.assertEqual(self.new_credential.username,"Gideon")
 		self.assertEqual(self.new_credential.site_name, "Twitter")
 		self.assertEqual(self.new_credential.account_name, "@gideonm")
 		self.assertEqual(self.new_credential.password, "Been2000")    
@@ -45,6 +45,14 @@ class TestCredentials(unittest.TestCase):
     def tearDown(self):
 		Credentials.credentials_list = []
 		User.users_list = []    
+    
+    def test_display_credentials(self):
+		self.new_credential.save_credentials()
+		Facebook = Credential("Grace", "Facebook", "@graceg",'Been2000')
+		Facebook.save_credentials()
+		gmail = Credentials("Grace",'Gmail', "graceg", "Been2000")
+		gmail.save_credentials()
+		self.assertEqual(len(Credentials.display_credentials(Facebook.username)),2)
 
 
 
