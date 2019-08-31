@@ -54,6 +54,13 @@ class TestCredentials(unittest.TestCase):
 		gmail.save_credentials()
 		self.assertEqual(len(Credentials.display_credentials(Facebook.username)),2)
 
+    def test_get_by_site_name(self):
+		self.new_credential.save_credentials()
+		Facebook = Credential("Grace", "Facebook", "@graceg",'Been2000')
+		Facebook.save_credentials()
+		credential_exists = Credentials.get_by_site_name("Facebook")
+		self.assertEqual(credential_exists, Facebook)    
+
 
 
                
