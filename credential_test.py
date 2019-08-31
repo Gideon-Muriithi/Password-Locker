@@ -28,7 +28,7 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(current_user, Credentials.user_check(addUser.password, addUser.fname))
 
     def setUp(self):
-		self.new_credential = Credential("Gideon","Twitter","@gideonm","Been2000")
+		self.new_credential = Credentials("Gideon","Twitter","@gideonm","Been2000")
     
     def test__init__(self):
         self.assertEqual(self.new_credential.user_name,"Gideon")
@@ -36,6 +36,16 @@ class TestCredentials(unittest.TestCase):
 		self.assertEqual(self.new_credential.account_name, "@gideonm")
 		self.assertEqual(self.new_credential.password, "Been2000")    
     
+    def test_save_credentials(self):
+		self.new_credential.save_credentials()
+		Facebook = Credential("Grace", "Facebook", "@graceg",'Been2000')
+		Facebook.save_credentials()
+		self.assertEqual(len(Credentials.credentials_list),2)
+
+    def tearDown(self):
+		Credentials.credentials_list = []
+		User.users_list = []    
+
 
 
                

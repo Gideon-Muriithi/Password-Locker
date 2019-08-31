@@ -13,7 +13,7 @@ class User:
         user.users_list.append(self)    
 
 class Credentials:
-    crededentials_list = []
+    credentials_list = []
     user_credentials = []
 
     @classmethod
