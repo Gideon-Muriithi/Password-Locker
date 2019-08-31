@@ -16,7 +16,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.users_list), 1) 
 
 class TestCredentials(unittest.TestCase):
-    def test_user_credentials(self):
+    def test_user_check(self):
         self.new_user = User("Gideon", "Chef", "Been2000")
         self.new_user.save_user()
         addUser = User("Peter", "Chamgei", "Double10")
@@ -25,8 +25,18 @@ class TestCredentials(unittest.TestCase):
             if user.fname == addUser.fname and user.password == addUser.password:
                 current_user = user.fname
         return current_user
-        self.assertEqual(current_user, Credentials.user_credentials(addUser.password, addUser.fname))
-                 
+        self.assertEqual(current_user, Credentials.user_check(addUser.password, addUser.fname))
+
+    def setUp(self):
+		self.new_credential = Credential("Gideon","Twitter","@gideonm","Been2000")
+    
+    def test__init__(self):
+        self.assertEqual(self.new_credential.user_name,"Gideon")
+		self.assertEqual(self.new_credential.site_name, "Twitter")
+		self.assertEqual(self.new_credential.account_name, "@gideonm")
+		self.assertEqual(self.new_credential.password, "Been2000")    
+    
+
 
                
     
