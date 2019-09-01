@@ -84,10 +84,16 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.user_credentials_list), 2)
 
     def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run
+        '''
         Credentials.user_credentials_list = []
         User.user_list = []
 
     def test_display_credentials(self):
+        '''
+		test_display_credentials method to test if the display_credentials method executes correctly
+		'''
         self.new_credential.save_credentials()
         Facebook = Credentials("Grace", "Facebook", "@graceg", 'Been2000')
         Facebook.save_credentials()
@@ -97,6 +103,9 @@ class TestCredentials(unittest.TestCase):
             len(Credentials.display_credentials(Facebook.username)), 2)
 
     def test_get_by_site_name(self):
+        '''
+        test to check if we can find a user by site name and display information
+        '''
         self.new_credential.save_credentials()
         Facebook = Credentials("Grace", "Facebook", "@graceg", 'Been2000')
         Facebook.save_credentials()
@@ -104,6 +113,9 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(credential_exists, Facebook)
 
     def test_copy_credential(self):
+        '''
+		test to check if the copy credential method gets the correct credentials
+		'''
         self.new_credential.save_credentials()
         Facebook = Credentials("Grace", "Facebook", "@graceg", 'Been2000')
         Facebook.save_credentials()

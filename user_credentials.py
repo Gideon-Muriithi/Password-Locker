@@ -81,7 +81,7 @@ class Credentials:
 		'''
         for credential in cls.credentials_list:
             if credential.site_name == site_name:
-        return credential
+                return credential
 
     @classmethod
     def copy_credential(cls, site_name):
