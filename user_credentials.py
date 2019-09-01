@@ -27,7 +27,7 @@ class User:
 
 
 class Credentials:
-    credentials_list = []
+    # credentials_list = []
     user_credentials_list = []
 
     @classmethod
@@ -69,7 +69,7 @@ class Credentials:
 		Class method to display the list of credentials saved
 		'''
         user_credentials_list = []
-        for credential in user_credentials_list:
+        for credential in cls.user_credentials_list:
             if credential.username == username:
                 user_credentials_list.append(credential)
         return user_credentials_list
@@ -79,7 +79,7 @@ class Credentials:
         '''
 		Method that takes in a site_name and returns a credential that matches that site_name
 		'''
-        for credential in cls.credentials_list:
+        for credential in cls.user_credentials_list:
             if credential.site_name == site_name:
                 return credential
 
