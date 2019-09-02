@@ -77,7 +77,16 @@ def main():
 			password = input("Enter your password - ").strip()
 			save_user(create_user(fname, lname,password))
 			print(" ")
-			print(f"New Account Created for: {fname} {lname} using password: {password}")		
+			print(f"New Account Created for: {fname} {lname} using password: {password}")	
+
+		elif short_code == 'li':
+			print("-"*40)
+			print(" ")
+			print("Please enter your account details to log in:")
+			username = input("Enter your first name - ").strip()
+			password = str(input("Enter your password - "))
+			user_exists = verify_user(username,password)		
+
 
 if __name__ == '__main__':
 	main()
