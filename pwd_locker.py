@@ -61,7 +61,7 @@ def main():
 	print("Hi there! Welcome to Password Locker App!")
 	while True:
 		print(" ")
-		print("-"*40)
+		print("-"*50)
 		print("Use these codes to navigate: \n ca-Create Account \n li-Log In \n ex-Exit")
 		short_code = input("Enter a choice: ").lower().strip()
 		
@@ -69,7 +69,7 @@ def main():
 			break	
 
 		elif short_code == "ca":
-			print("-"*40)
+			print("-"*50)
 			print(" ")
 			print("To create an account:")
 			fname = input("Enter your first name - ").strip()
@@ -80,7 +80,7 @@ def main():
 			print(f"New Account Created for: {fname} {lname} using password: {password}")	
 
 		elif short_code == 'li':
-			print("-"*40)
+			print("-"*50)
 			print(" ")
 			print("Please enter your account details to log in:")
 			username = input("Enter your first name - ").strip()
@@ -91,10 +91,10 @@ def main():
 				print(f"Welcome {username}. Please pick an option to continue.")
 				print(" ")	
 				while True:
-					print("-"*40)
+					print("-"*50)
 					print("Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n cp-Copy Password \n ex-Exit")
 					short_code = input("Enter an option: ").lower().strip()
-					print("-"*40)
+					print("-"*50)
 					if short_code == "ex":
 						print(" ")
 						print(f"Goodbye {username}")
@@ -103,7 +103,26 @@ def main():
 						print(" ")
 						print("Enter your credential details:")
 						site_name = input("Enter the site\'s name- ").strip()
-						account_name = input("Enter your account\'s name - ").strip()	
+						account_name = input("Enter your account\'s name - ").strip()
+						while True:
+							print(" ")
+							print("-"*50)
+							print("Please choose an option for entering a password: \n ep-enter existing password \n gp-generate a password \n ex-exit")
+							pwd_option = input("Enter an option: ").lower().strip()
+							print("-"*50)
+							if pwd_option == "ep":
+								print(" ")
+								password = input("Enter the password:").strip()
+								break
+							elif pwd_option == "gp":
+								password = pwd_generation()
+								break
+							elif pwd_option == "ex":
+								break
+							else:
+								print('Oops! The option doesn\'t. Try again.')
+	
+	
 
 
 if __name__ == '__main__':
