@@ -45,11 +45,11 @@ def main():
 		'''
 		Credentials.save_credentials(credential)
 
-	def display_credentials(username):
+	def display_credentials():
 		'''
 		Function to display user credentials
 		'''
-		return Credentials.display_credentials(username)
+		return Credentials.display_credentials()
 
 	def copy_credential(site_name):
 		'''
@@ -120,10 +120,45 @@ def main():
 							elif pwd_option == "ex":
 								break
 							else:
-								print('Oops! The option doesn\'t. Try again.')
-	
-	
+								print("Oops! The option doesn\'t. Try again.")
 
+							save_credentials(create_credential(username,site_name,account_name,password))
+							print(" ")
+							print(f"Created Credential: Site Name: {site_name} - Account Name: {account_name} - Password: {password}")
+							print(" ")
+					# To Be Fixed
+					elif short_code == "dc":  
+						print("\n")
+						if display_credentials():
+							print("The following is a list of your credentials")
+							print(" ")
+							for credential in display_credentials():
+								print(f"Site Name: {credential.site_name} - Account Name: {credential.account_name} - Password: {credential.password}")
+							print(" ")	
+					else:
+						print(" ")
+						print("It looks like you don't have any credentials saved yet.")
+						print(" ")
+                    # To Be Fixed
+					if short_code == 'cp':
+						print(" ")
+						chosen_site = input("Enter the site name whose credential password you want to copy:")
+						copy_credential(chosen_site)
+						print(" ")
+					else:
+						print("Oops! Option doesn\'t exist. Try again.")
+
+		else: 
+			print(" ")
+			print("Oops! Wrong details entered. Try again or Create an Account.")	
+	else:
+		print("-"*60)
+		print(" ")
+		print("Oops! Wrong option entered. Try again.")
+			
+						
+
+				
 
 if __name__ == '__main__':
 	main()

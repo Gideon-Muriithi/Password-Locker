@@ -64,7 +64,7 @@ class Credentials:
         return pwd_gen
 
     @classmethod
-    def display_credentials(cls, username):
+    def display_credentials(cls):
         '''
 		Class method to display the list of credentials saved
 		'''
