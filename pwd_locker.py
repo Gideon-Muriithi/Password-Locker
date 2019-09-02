@@ -1,3 +1,6 @@
+import pyperclip
+from user_credentials import User, Credentials
+
 def main():
 	def create_user(fname, lname, password):
 		'''
@@ -58,12 +61,23 @@ def main():
 	print("Hi there! Welcome to Password Locker App!")
 	while True:
 		print(" ")
-		print("-"*60)
-		print("Use these codes to navigate: \n CA-Create Account \n LI-Log In \n Ex-Exit")
+		print("-"*40)
+		print("Use these codes to navigate: \n ca-Create Account \n li-Log In \n ex-Exit")
 		short_code = input("Enter a choice: ").lower().strip()
-		if short_code == "Ex":
+		
+		if short_code == "ex":
 			break	
-				
+
+		elif short_code == "ca":
+			print("-"*40)
+			print(" ")
+			print("To create an account:")
+			fname = input("Enter your first name - ").strip()
+			lname = input("Enter your last name - ").strip()
+			password = input("Enter your password - ").strip()
+			save_user(create_user(fname, lname,password))
+			print(" ")
+			print(f"New Account Created for: {fname} {lname} using password: {password}")		
 
 if __name__ == '__main__':
 	main()
