@@ -85,7 +85,25 @@ def main():
 			print("Please enter your account details to log in:")
 			username = input("Enter your first name - ").strip()
 			password = str(input("Enter your password - "))
-			user_exists = verify_user(username,password)		
+			user_exists = verify_user(username,password)
+			if user_exists == username:
+				print(" ")
+				print(f"Welcome {username}. Please pick an option to continue.")
+				print(" ")	
+				while True:
+					print("-"*40)
+					print("Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n cp-Copy Password \n ex-Exit")
+					short_code = input("Enter an option: ").lower().strip()
+					print("-"*40)
+					if short_code == "ex":
+						print(" ")
+						print(f"Goodbye {username}")
+						break
+					elif short_code == "cc":
+						print(" ")
+						print("Enter your credential details:")
+						site_name = input("Enter the site\'s name- ").strip()
+						account_name = input("Enter your account\'s name - ").strip()	
 
 
 if __name__ == '__main__':
